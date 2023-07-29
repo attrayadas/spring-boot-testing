@@ -29,6 +29,7 @@ public class EmployeeRepositoryIT {
                 .lastName("Fadatare")
                 .email("ramesh@gmail.com")
                 .build();
+        employeeRepository.deleteAll();
     }
 
     // JUnit test for save employee operation
