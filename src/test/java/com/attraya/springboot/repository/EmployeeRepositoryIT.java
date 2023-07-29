@@ -1,5 +1,6 @@
 package com.attraya.springboot.repository;
 
+import com.attraya.springboot.integration.AbstractContainerBaseTest;
 import com.attraya.springboot.model.Employee;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // this will disable the in-memory database support
-public class EmployeeRepositoryIT {
+public class EmployeeRepositoryIT extends AbstractContainerBaseTest {
 
     @Autowired
     private EmployeeRepository employeeRepository;
