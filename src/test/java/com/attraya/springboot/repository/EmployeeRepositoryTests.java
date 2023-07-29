@@ -12,6 +12,9 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Uncomment H2 Database dependency in pom.xml before running
+ */
 @DataJpaTest
 public class EmployeeRepositoryTests {
 
