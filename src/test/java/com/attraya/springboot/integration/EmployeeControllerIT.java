@@ -27,21 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-@Testcontainers
-public class EmployeeControllerIT {
-
-    @Container
-    private static MySQLContainer mySQLContainer = new MySQLContainer("mysql:latest")
-            .withUsername("username") // defining user defined credentials
-            .withPassword("password")
-            .withDatabaseName("ems");
-
-    @DynamicPropertySource
-    public static void dynamicPropertySource(DynamicPropertyRegistry registry){
-        registry.add("spring.datasource.url", mySQLContainer::getJdbcUrl);
-        registry.add("spring.datasource.username", mySQLContainer::getUsername);
-        registry.add("spring.datasource.password", mySQLContainer::getPassword);
-    }
+public class EmployeeControllerIT extends AbstractionBaseTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -59,11 +45,6 @@ public class EmployeeControllerIT {
 
     @Test
     public void givenEmployeeObject_whenCreateEmployee_thenReturnSavedEmployee() throws Exception{
-
-        System.out.println("default mysql container username: " +mySQLContainer.getUsername()); // test -> username
-        System.out.println("default mysql container password: " +mySQLContainer.getPassword()); // test -> password
-        System.out.println("default mysql database name: " +mySQLContainer.getDatabaseName()); // test -> ems
-        System.out.println("default database link: " +mySQLContainer.getJdbcUrl()); // jdbc:mysql://localhost:54574/test
         // given - precondition or setup
         Employee employee = Employee.builder()
                 .firstName("Ramesh")
