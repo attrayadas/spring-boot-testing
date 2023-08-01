@@ -11,7 +11,7 @@
 **1. Clone the Application**
 
 ```bash
-git clone https://github.com/attrayadas/springboot-testing-demo
+git clone https://github.com/attrayadas/springboot-test-demo.git
 ```
 
 **2. Create MySQL Database**
